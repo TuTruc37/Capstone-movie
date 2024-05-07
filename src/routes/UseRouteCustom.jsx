@@ -3,6 +3,7 @@ import { useRoutes } from 'react-router-dom';
 import { path } from '../common/path';
 import Login from '../pages/LoginAndRegister/Login';
 import Register from '../pages/LoginAndRegister/Register';
+
 const useRouteCustom = () => {
   const route = useRoutes([
     {
