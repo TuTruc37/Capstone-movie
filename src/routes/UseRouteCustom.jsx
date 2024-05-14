@@ -3,6 +3,7 @@ import { useRoutes } from 'react-router-dom';
 import { path } from '../common/path';
 import Login from '../pages/LoginAndRegister/Login';
 import Register from '../pages/LoginAndRegister/Register';
+import NotFound from '../pages/NotFound/NotFound';
 
 const useRouteCustom = () => {
   const route = useRoutes([
@@ -16,6 +17,10 @@ const useRouteCustom = () => {
     {
       path: path.dangKy,
       element: <Register />,
+    },
+    {
+      path: '*',
+      element: <NotFound />,
     },
   ]);
   return route;
