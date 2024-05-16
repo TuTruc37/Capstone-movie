@@ -7,7 +7,7 @@ const NotFound = () => {
   return (
     <div className="grid grid-cols-5 h-screen bg-black">
       <div></div>
-      <div className="flex flex-col col-span-3">
+      <div className="flex flex-col justify-center col-span-3 ">
         {/* animation  */}
         <Lottie animationData={NotFoundAnimation} loop={true} />
         {/* button */}

@@ -2,12 +2,17 @@ import React from 'react';
 import Lottie from 'lottie-react';
 import loginAnimation from '../../assets/animation/LoginAnimation.json';
 import FormLogin from '../../components/Form/FormLogin/FormLogin';
+import style from './register.module.css';
 const Login = () => {
   return (
-    <div className="grid grid-cols-2 gap-10 h-screen bg-black">
+    <div className={`grid h-screen bg-black ${style.gridAll}`}>
       {/* animation  */}
-      <div>
-        <Lottie animationData={loginAnimation} loop={false} />
+      <div className={style.displayNone}>
+        <Lottie
+          animationData={loginAnimation}
+          loop={false}
+          className="h-full "
+        />
       </div>
       {/* form  */}
       <div>

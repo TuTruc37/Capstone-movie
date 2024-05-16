@@ -6,9 +6,9 @@ import FormRegister from '../../components/Form/FormRegister/FormRegister';
 import style from './register.module.css';
 const Register = () => {
   return (
-    <div className="grid grid-cols-2 gap-10 h-screen bg-black">
+    <div className={`grid h-screen bg-black ${style.gridAll}`}>
       {/* animation  */}
-      <div>
+      <div className={`${style.lottieCenter} ${style.displayNone}`}>
         <Lottie
           animationData={RobotAnimation}
           loop={true}

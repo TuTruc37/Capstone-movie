@@ -9,7 +9,7 @@ import { path } from '../../../common/path';
 import { handleSetValueLocalStore } from '../../../utils/utils';
 import { useDispatch } from 'react-redux';
 import { handleGetValue } from '../../../redux/slice/userSlice';
-
+import styles from './formRegister.module.css';
 const FormRegister = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -68,8 +68,10 @@ const FormRegister = () => {
       }),
     });
   return (
-    <div className="flex items-center justify-center h-full w-2/3 text-white">
-      <form onSubmit={handleSubmit} className="space-y-5 w-full">
+    <div
+      className={`flex items-center justify-center h-full lg:w-2/3 text-white md:w-11/12 ${styles.endBeautiful}`}
+    >
+      <form onSubmit={handleSubmit} className="space-y-5 w-full ">
         <h1 className="md:text-2xl font-bold leading-tight mt-12">
           Tạo tài khoản riêng của bạn
         </h1>

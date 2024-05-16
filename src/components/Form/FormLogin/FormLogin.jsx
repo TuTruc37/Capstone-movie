@@ -9,6 +9,7 @@ import { path } from '../../../common/path';
 import { handleSetValueLocalStore } from '../../../utils/utils';
 import { useDispatch } from 'react-redux';
 import { handleGetValue } from '../../../redux/slice/userSlice';
+import styles from '../FormRegister/formRegister.module.css';
 const FormLogin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -47,7 +48,9 @@ const FormLogin = () => {
       }),
     });
   return (
-    <div className="flex items-center justify-center h-full w-2/3 text-white">
+    <div
+      className={`flex items-center justify-center h-full lg:w-2/3 text-white md:w-11/12 ${styles.endBeautiful}`}
+    >
       <form onSubmit={handleSubmit} className="space-y-5 w-full">
         <h1 className="md:text-2xl font-bold leading-tight mt-12">
           Đăng nhập vào tài khoản của bạn
