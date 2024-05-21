@@ -1,6 +1,7 @@
 import { FacebookOutlined, InstagramOutlined, YoutubeOutlined } from '@ant-design/icons'
+import { Input } from 'antd'
 import React from 'react'
-import Input from '../component/Input';
+
 
 
 

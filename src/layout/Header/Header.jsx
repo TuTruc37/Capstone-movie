@@ -1,5 +1,5 @@
 import 'flowbite/dist/flowbite';
-import Image from '../asset/image/Logo.png'
+import Image from '../../asset/image/Logo.png'
 const Header = () => {
   return (
     <div>
