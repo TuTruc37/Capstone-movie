@@ -6,6 +6,7 @@ import { Rate } from 'antd'
 import Tag from '../component/Tag'
 import { useEffect, useState } from 'react'
 import { quanLyPhimSer } from '../services/quanLyPhimSer'
+import HeThongLichChieu from './HeThongLichChieu/HeThongLichChieu'
 
 const Detail = () => {
   const [arrItmem, setArrItem] = useState([]);
@@ -109,8 +110,10 @@ const Detail = () => {
 
 
       {/* Lich chieu  */}
+      
       <div className='mx-40  text-white'>
-        <h2 className='text-2xl'>Lich chieu phim</h2>
+        <h2 className='text-2xl my-5'>Lich chieu phim</h2>
+        <HeThongLichChieu/>
       </div>
     </div>
 
