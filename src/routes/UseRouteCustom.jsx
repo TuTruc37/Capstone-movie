@@ -4,7 +4,9 @@ import { path } from '../common/path';
 import Login from '../pages/LoginAndRegister/Login';
 import Register from '../pages/LoginAndRegister/Register';
 import NotFound from '../pages/NotFound/NotFound';
-
+import AdminTemplate from '../templates/AdminTemplates/AdminTemplate';
+import FilmsManager from '../pages/Films/FilmsManager/FilmsManager';
+import CreateFilms from '../pages/Films/CreateFilms/CreateFilms';
 const useRouteCustom = () => {
   const route = useRoutes([
     {
@@ -17,6 +19,20 @@ const useRouteCustom = () => {
     {
       path: path.dangKy,
       element: <Register />,
+    },
+    {
+      path: path.admin.films,
+      element: <AdminTemplate />,
+      children: [
+        {
+          index: true,
+          element: <FilmsManager />,
+        },
+        {
+          path: path.admin.addNew,
+          element: <CreateFilms />,
+        },
+      ],
     },
     {
       path: '*',
