@@ -37,22 +37,22 @@ const AdminTemplate = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  // useEffect(() => {
-  //   // lấy dữ liệu từ local lên để kiểm tra
-  //   // Nếu như localStore không có dữ liệu ==> Đá mông người dùng đi mất
-  //   // Nếu như có dữ liệu và maLoaiNguoiDung không đúng ==> Đá mông người dùng đi mất
-  //   const dataUser = handleGetValueLocalStore('dataUser');
-  //   if (!dataUser) {
-  //     window.location.href = 'https://google.com';
-  //   } else {
-  //     if (dataUser.maLoaiNguoiDung !== 'QuanTri') {
-  //       window.location.href = 'https://google.com';
-  //     }
-  //   }
-  //   // return () => {
+  useEffect(() => {
+    // lấy dữ liệu từ local lên để kiểm tra
+    // Nếu như localStore không có dữ liệu ==> Đá mông người dùng đi mất
+    // Nếu như có dữ liệu và maLoaiNguoiDung không đúng ==> Đá mông người dùng đi mất
+    const dataUser = handleGetValueLocalStore('dataUser');
+    if (!dataUser) {
+      window.location.href = 'https://google.com';
+    } else {
+      if (dataUser.maLoaiNguoiDung !== 'QuanTri') {
+        window.location.href = 'https://google.com';
+      }
+    }
+    // return () => {
 
-  //   // }
-  // }, []);
+    // }
+  }, []);
 
   return (
     <Layout
