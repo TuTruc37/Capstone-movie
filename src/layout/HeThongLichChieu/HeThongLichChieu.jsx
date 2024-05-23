@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Space, Tabs } from 'antd';
 import { quanLyPhimSer } from '../../services/quanLyPhimSer';
 import { quanLyRapSer } from '../../services/quanLyRapSer';
+import './heThongLichChieu.scss';
 
 
 const HeThongLichChieu = () => {
@@ -17,7 +18,7 @@ const HeThongLichChieu = () => {
           })
           .catch((error) => {
             console.log(error);
-            setError('Failed to load videos. Please try again later.');
+            setError('Failed to load Rap. Please try again later.');
           })
       }, []);
     return (
@@ -31,14 +32,13 @@ const HeThongLichChieu = () => {
             </Space>
             <Tabs
                 tabPosition={'left'}
-                items={new Array(3).fill(null).map((_, i) => {
-                    const id = String(i + 1);
+                items={arrRap.map((rap, index)=> {
                     return {
-                        label: `Tab ${id}`,
-                        key: id,
-                        children: `Content of Tab ${id}`,
-                    };
-                })}
+                        label: <img className='w-16 he_thong_lich_chieu' src={rap.logo} />,
+                        key: index,
+                        children: 'hello guys'
+                    }
+                })}                
             />
 
 
