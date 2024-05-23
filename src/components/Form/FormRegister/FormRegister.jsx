@@ -65,6 +65,9 @@ const FormRegister = () => {
             /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
             'Vui lòng nhập mật khẩu bao gồm ít nhất 1 ký tự viết hoa và số'
           ),
+        nhapLaiMatKhau: Yup.string()
+          .required('Vui lòng không bỏ trống')
+          .oneOf([Yup.ref('matKhau')], 'Mật khẩu không trùng khớp'),
       }),
     });
   return (
@@ -118,7 +121,18 @@ const FormRegister = () => {
           className="col-span-2"
           value={values.matKhau}
         />
-
+        <InputCustom
+          label="Nhập lại mật khẩu"
+          name="nhapLaiMatKhau"
+          handleChange={handleChange}
+          handleBlur={handleBlur}
+          placeholder="Vui lòng nhập lại mật khẩu"
+          type="password"
+          error={errors.nhapLaiMatKhau}
+          touched={touched.nhapLaiMatKhau}
+          className="col-span-2"
+          value={values.nhapLaiMatKhau}
+        />
         <div>
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white px-5 py-2 rounded-md w-full text-center"
