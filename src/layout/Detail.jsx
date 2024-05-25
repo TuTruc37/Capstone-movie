@@ -1,99 +1,122 @@
 // import React from 'react'
 import { CalendarOutlined, FieldTimeOutlined } from '@ant-design/icons'
-import Image from '../asset/image/luca.jpeg'
 import Trailer from './Trailer/Trailer'
 import { Rate } from 'antd'
 import Tag from '../component/Tag'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { quanLyPhimSer } from '../services/quanLyPhimSer'
 import HeThongLichChieu from './HeThongLichChieu/HeThongLichChieu'
+import moment from 'moment';
 
 const Detail = () => {
-  const [arrItmem, setArrItem] = useState([]);
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    quanLyPhimSer
-      .layDanhSachTrailer()
-      .then((res) => {
-        console.log(res);
-        setArrItem(res.data.content);
-      })
-      .catch((error) => {
-        console.log(error);
-        setError('Failed to load. Please try again later.');
-      })
-  }, []);
-  return (
-    <div className='bg-slate-400'>
-      {/* Trailer  */}
-      <Trailer />
+  const handleDateChange = (event) => {
+    // Xử lý sự kiện thay đổi ở đây
+    // Bạn có thể truy cập giá trị ngày mới từ event.target.value
+    console.log('Ngày mới:', event.target.value); // Ví dụ ghi nhật ký
+  };
 
-      {/* Thong tin phim  */}
-      <div>
+  const Item = ({ item }) => {
+    const [formattedDate, setFormattedDate] = useState(
+      // Sử dụng hàm định dạng ngày thích hợp ở đây
+      item.ngayKhoiChieu ? new Date(item.ngayKhoiChieu).toLocaleDateString('vi-VN') : ''
+    );
 
 
+    const [arrItmem, setArrItem] = useState([]);
+    const [error, setError] = useState(null);
+    useEffect(() => {
+      quanLyPhimSer
+        .layDanhSachTrailer()
+        .then((res) => {
+          console.log(res);
+          setArrItem(res.data.content);
+        })
+        .catch((error) => {
+          console.log(error);
+          setError('Failed to load. Please try again later.');
+        })
+    }, []);
+    return (
+      <div className='bg-slate-400'>
+        {/* Trailer  */}
+        <Trailer />
+
+        {/* Thong tin phim  */}
         <div>
-          {error && <div>{error}</div>}
           <div>
-            {arrItmem.length > 0 ? (
-              arrItmem.map((item, index) => (
-                <div key={index}>
-                  <div className='flex mx-36'>
+            {error && <div>{error}</div>}
+            <div>
+              {arrItmem.length > 0 ? (
+                arrItmem.map((item, index) => (
+                  <div key={index}>
+                    <div className='flex mx-48'>
 
-                    <img src={item.hinhAnh} alt="" className='-my-10 w-c' />
+                      <img src={item.hinhAnh} alt="" className='-my-10 w-64 h-96' />
 
-                    <div className='mx-10 grow h-14 text-white'>
-                      <h1 className='text-4xl my-2'>{item.tenPhim}</h1>
-                      <div className='flex'>
-                        <div >
-                          <FieldTimeOutlined className='mx-2 ' />
-                          <span>120p</span>
+                      <div className='mx-10 grow h-14 text-white'>
+                        <h1 className='text-4xl my-2'>{item.tenPhim}</h1>
+                        <div className='flex'>
+                          <div >
+                            <FieldTimeOutlined className='mx-2 ' />
+                            <span>120p</span>
+                          </div>
+                          <div className='mx-4'>
+                            <CalendarOutlined className='mx-2' />
+                            <div>
+                              <input
+                                type="date"
+                                value={formattedDate} // Hiển thị ngày đã định dạng trong input
+                                onChange={handleDateChange} // Cập nhật trạng thái khi thay đổi
+                              />
+                              <p>{formattedDate}</p>
+                            </div>
+
+                          </div>
                         </div>
-                        <div className='mx-4'>
-                          <CalendarOutlined className='mx-2' />
-                          <span>4/4/2024</span>
+                        <Rate className='my-2' value={item.danhGia} />
+                        <div className='flex my-2' >
+                          <p>Thể loại:  </p>
+                          <div className='mx-5'>
+                            <Tag />
+                          </div>
+
                         </div>
+
+                        <p>Ngôn ngữ: Tieng Anh</p>
+                        <div className='flex my-2'>
+                          <p>Đạo diễn:  </p>
+                          <div className='mx-5'>
+                            <Tag />
+                          </div>
+                        </div>
+                        <div className='flex my-2'>
+                          <p>Diễn viên:  </p>
+                          <div className='mx-5'>
+                            <Tag />
+                          </div>
+                        </div>
+
+
+
                       </div>
-                      <Rate className='my-2' />
-                      <div className='flex my-2' >
-                        <p>Thể loại:  </p>
-                        <div className='mx-5'>
-                          <Tag />
-                        </div>
-
-                      </div>
-
-                      <p>Ngôn ngữ: Tieng Anh</p>
-                      <div className='flex my-2'>
-                        <p>Đạo diễn:  </p>
-                        <div className='mx-5'>
-                          <Tag />
-                        </div>
-                      </div>
-                      <div className='flex my-2'>
-                        <p>Diễn viên:  </p>
-                        <div className='mx-5'>
-                          <Tag />
-                        </div>
-                      </div>
-
-
-
                     </div>
+
+                    {/* Noi dung phim  */}
+                    <div className='mx-40 my-20 mr-96 text-white'>
+                      <h2 className='text-2xl'>Noi dung phim</h2>
+                      <p className='mr-38 my-4'>{item.moTa}</p>
+                    </div>
+
                   </div>
+                ))
+              ) : (
+                <div>No videos available.</div>
 
-                  {/* Noi dung phim  */}
-                  <div className='mx-40 my-20 mr-96 text-white'>
-                    <h2 className='text-2xl'>Noi dung phim</h2>
-                    <p className='mr-38 my-4'>{item.moTa}</p>
-                  </div>
+              )}
 
-                </div>
-              ))
-            ) : (
-              <div>No videos available.</div>
 
-            )}
+
+            </div>
 
 
 
@@ -105,19 +128,15 @@ const Detail = () => {
 
 
 
+        {/* Lich chieu  */}
+
+        <div className='mx-40  text-white'>
+          <h2 className='text-2xl my-5'>Lich chieu phim</h2>
+          <HeThongLichChieu />
+        </div>
       </div>
 
+    )
+  }
 
-
-      {/* Lich chieu  */}
-      
-      <div className='mx-40  text-white'>
-        <h2 className='text-2xl my-5'>Lich chieu phim</h2>
-        <HeThongLichChieu/>
-      </div>
-    </div>
-
-  )
-}
-
-export default Detail
+  export default Detail
