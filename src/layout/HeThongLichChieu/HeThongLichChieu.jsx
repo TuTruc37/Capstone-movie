@@ -4,11 +4,14 @@ import { Space, Tabs } from 'antd';
 import { quanLyPhimSer } from '../../services/quanLyPhimSer';
 import { quanLyRapSer } from '../../services/quanLyRapSer';
 import './heThongLichChieu.scss';
+import HeThongCumRap from '../../component/HeThongLichCumRap/HeThongCumRap';
 
 
 const HeThongLichChieu = () => {
     const [arrRap, setArrRap] = useState([]);
     const [error, setError] = useState(null);
+    const [maHeThongRap, setMaHeThongRap] = useState('');
+// console.log(maHeThongRap);
     useEffect(() => {
         quanLyRapSer
           .layThongTinHeThongRap()
@@ -35,10 +38,14 @@ const HeThongLichChieu = () => {
                 items={arrRap.map((rap, index)=> {
                     return {
                         label: <img className='w-16 he_thong_lich_chieu' src={rap.logo} />,
-                        key: index,
-                        children: 'hello guys'
+                        key: rap.maHeThongRap,
+                        children: <HeThongCumRap maHeThongRap={maHeThongRap}/>
                     }
                 })}                
+                onChange={activeKey=> {
+                    console.log(activeKey);
+                    setMaHeThongRap(activeKey);
+                }}
             />
 
 
