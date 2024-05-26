@@ -1,0 +1,91 @@
+@import './../../abstracts/breakpoint';
+.list-cinema {
+  @include screen(sm) {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    overflow-y: scroll !important;
+    height: 400px !important;
+  }
+  .ant-tabs-content-holder {
+    .ant-tabs-content {
+      height: 100%;
+
+      .ant-tabs-tabpane {
+        height: 100%;
+      }
+    }
+  }
+  .ant-tabs-content-top {
+    height: 100%;
+  }
+  &-heading {
+    @include screen(md) {
+      font-size: 12px;
+      width: 200px !important;
+    }
+    @include screen(lg) {
+      font-size: 12px !important;
+      width: 200px !important;
+    }
+    @include screen(sm) {
+      text-align: center;
+      width: 150px !important;
+      font-size: 12px !important;
+      @apply truncate;
+    }
+  }
+  &-title {
+    @include screen(md) {
+      width: 200px !important;
+
+      font-size: 12px;
+    }
+    @include screen(lg) {
+      width: 200px !important;
+
+      font-size: 12px !important;
+    }
+    @include screen(sm) {
+      width: 150px !important;
+      text-align: center;
+      font-size: 10px !important;
+    }
+  }
+}
+.list-cinema-bottom{
+  @include screen(sm) {
+    gap: 10px !important;
+  }
+}
+.list-cinema-content-bottom {
+}
+.list-cinema-time{
+ @include screen(sm){
+  font-size: 9px !important;
+  text-align: center !important;
+        
+ }
+}
+.list-cinema-number{
+  
+}
+/* Custom scrollbar styles */
+.list-cinema::-webkit-scrollbar {
+  width: 3px; /* Width of the scrollbar */
+}
+
+.list-cinema::-webkit-scrollbar-track {
+  background: #acaaaa; /* Background color of the scrollbar track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+.list-cinema::-webkit-scrollbar-thumb {
+  background-color: #c80303; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  border: 2px solid #c80303; /* Space around the thumb with the track color */
+}
+
+/* Hover effect for the scrollbar thumb */
+.list-cinema::-webkit-scrollbar-thumb:hover {
+  background-color: #6a6a6a; /* Lighter color when hovering over the thumb */
+}

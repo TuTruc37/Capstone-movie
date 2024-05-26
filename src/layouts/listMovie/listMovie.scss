@@ -35,14 +35,16 @@
       position: absolute;
       display: inline-block;
       inset: 0;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(255, 255, 255, 0.2);
     }
   }
   &:hover .list_movies_content {
+    width: 100%;
     transform: translateY(0);
   }
   &_content {
-    padding: 0 10px 15px;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    padding: 10px 5px ;
     position: absolute;
     bottom: 0;
     color: #fff;

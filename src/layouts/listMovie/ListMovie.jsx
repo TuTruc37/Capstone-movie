@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { listMovieServices } from '../../services/listMovieService';
 import './listMovie.scss';
+import { Link } from 'react-router-dom';
 
 const ListMovie = () => {
   const [arrMovie, setArrMovie] = useState([]);
@@ -33,18 +34,39 @@ const ListMovie = () => {
                   alt={item.tenPhim}
                 />
                 <div className="list_movies_content">
-                  <h3 className="text-lg font-bold">{item.tenPhim}</h3>
-                  <p className="text-sm clip_text">{item.moTa}</p>
+                  <h3 className="text-lg text-center font-bold">
+                    {item.tenPhim}
+                  </h3>
+                  <div className="space-x-2 mt-2 flex justify-center items-center">
+                    <Link
+                      to={`/details/${item.maPhim}`}
+                      className="py-2 px-4 rounded bg-red-500 text-white"
+                    >
+                      CHI TIẾT
+                    </Link>
+                    <Link
+                      to={`/tickets/${item.maPhim}`}
+                      className="py-2 px-4 rounded bg-red-500 text-white"
+                    >
+                      MUA VÉ
+                    </Link>
+                  </div>
                 </div>
                 <div className="video-wrapper">
-                  <i className="fa-solid fa-circle-play list_movies_icon" />
+                  <a
+                    href={item.trailer}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="fa-solid fa-circle-play list_movies_icon" />
+                  </a>
                 </div>
               </div>
             </div>
           ))}
           {arrMovie.length > 12 && (
             <>
-              <h2 className="text_heading col-span-6   p-0 font-semibold text-lg text-white">
+              <h2 className="text_heading col-span-6 p-0 font-semibold text-lg text-white">
                 Coming soon___
               </h2>
               {arrMovie.slice(12).map((item, index) => (
@@ -56,11 +78,32 @@ const ListMovie = () => {
                       alt={item.tenPhim}
                     />
                     <div className="list_movies_content">
-                      <h3 className="text-lg font-bold">{item.tenPhim}</h3>
-                      <p className="text-sm clip_text">{item.moTa}</p>
+                      <h3 className="text-lg text-center font-bold">
+                        {item.tenPhim}
+                      </h3>
+                      <div className="space-x-2 mt-2 flex justify-center items-center">
+                        <Link
+                          to={`/details/${item.maPhim}`}
+                          className="py-2 px-4 rounded bg-red-500 text-white"
+                        >
+                          CHI TIẾT
+                        </Link>
+                        <Link
+                          to={`/tickets/${item.maPhim}`}
+                          className="py-2 px-4 rounded bg-red-500 text-white"
+                        >
+                          MUA VÉ
+                        </Link>
+                      </div>
                     </div>
                     <div className="video-wrapper">
-                      <i className="fa-solid fa-circle-play list_movies_icon" />
+                      <a
+                        href={item.trailer}
+                        target="_self"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="fa-solid fa-circle-play list_movies_icon" />
+                      </a>
                     </div>
                   </div>
                 </div>

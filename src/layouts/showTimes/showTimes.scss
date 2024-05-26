@@ -1,0 +1,40 @@
+@import './../../abstracts/breakpoint';
+
+.showTimes {
+  .ant-tabs {
+    @include screen(sm) {
+      overflow-x: auto !important; // Cho phép cuộn ngang trên thiết bị di động
+    }
+    .ant-tabs-ink-bar {
+      background: red;
+    }
+  }
+
+  .ant-tabs-nav {
+    &-wrap {
+      justify-content: center;
+      @include screen(sm) {
+        overflow-x: auto !important; // Cho phép cuộn ngang trên thiết bị di động
+      }
+    }
+    &-list {
+      @include screen(sm) {
+        flex-wrap: nowrap !important; // Không gói các tab trên thiết bị di động
+      }
+      @include screen(lg) {
+        flex-wrap: wrap; // Gói các tab trên các thiết bị lớn hơn
+      }
+      @apply overflow-x-auto flex-nowrap lg:flex-wrap justify-center;
+    }
+  
+  }
+
+  .ant-tabs-tab {
+    margin: 0 !important;
+    &-btn {
+      margin: 0 20px;
+      @include screen(sm){
+      }
+    }
+  }
+}
