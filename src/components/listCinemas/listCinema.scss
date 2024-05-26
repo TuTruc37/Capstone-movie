@@ -1,5 +1,13 @@
 @import './../../abstracts/breakpoint';
 .list-cinema {
+  @include screen(md) {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  @include screen(lg) {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
   @include screen(sm) {
     display: grid !important;
     grid-template-columns: 1fr !important;
@@ -52,21 +60,76 @@
     }
   }
 }
-.list-cinema-bottom{
+.list-cinema-bottom {
   @include screen(sm) {
     gap: 10px !important;
   }
 }
+.list-cinema-content {
+}
 .list-cinema-content-bottom {
 }
-.list-cinema-time{
- @include screen(sm){
-  font-size: 9px !important;
-  text-align: center !important;
-        
- }
+.list-cinema-time {
+  @include screen(sm) {
+    font-size: 12px !important;
+    text-align: center !important;
+  }
+  @include screen(md) {
+    font-size: 12px !important;
+    text-align: center !important;
+  }
+  @include screen(xl) {
+    font-size: 12px !important;
+    text-align: center !important;
+  }
 }
-.list-cinema-number{
+
+.list-cinema-time-pc {
+  @include screen(md) {
+    display: none;
+    justify-content: center;
+  }
+  @include screen(xxl) {
+    display: none;
+    justify-content: center;
+  }
+  @include screen(sm) {
+    display: none;
+    justify-content: center;
+  }
+}
+.list-cinema-number {
+  @include screen(md) {
+    justify-content: center;
+
+    font-size: 12px !important;
+  }
+  @include screen(xxl) {
+    font-size: 12px !important;
+  }
+  @include screen(sm) {
+    font-size: 12px !important;
+  }
+}
+.list-cinema-time-mobile {
+  display: none;
+  margin-left: 12px;
+
+  @include screen(sm) {
+    display: block;
+    margin-left: 6px;
+    font-size: 12px;
+  }
+  @include screen(md) {
+    display: block;
+    margin-left: 6px;
+    font-size: 12px;
+  }
+  @include screen(xxl) {
+    display: block;
+    margin-left: 6px;
+    font-size: 12px;
+  }
   
 }
 /* Custom scrollbar styles */

@@ -45,10 +45,10 @@ const ListCinemas = ({ idCinema }) => {
               {item.danhSachPhim.map((item, index) => {
                 return (
                   item.dangChieu && (
-                    <div key={index} className="flex my-5">
+                    <div key={index} className="flex my-5 ">
                       <div className="mr-5">
                         <img
-                          className="h-40 w-40 object-cover overflow-hidden"
+                          className="h-40 w-40 object-cover  overflow-hidden"
                           src={item.hinhAnh}
                           alt=""
                         />
@@ -71,13 +71,19 @@ const ListCinemas = ({ idCinema }) => {
                                   className="text-white list-cinema-content-bottom "
                                   key={index}
                                 >
-                                  <div className="list-cinema-time text-md font-semibold py-2  px-4 rounded whitespace-nowrap  bg-slate-500">
+                                  <div className=" flex list-cinema-time text-md font-semibold py-2  px-4 rounded whitespace-nowrap  bg-slate-500">
                                     {moment(item.ngayChieuGioChieu).format(
-                                      'DD-MM-YYYY ~ hh:mm '
+                                      ' DD-MM-YYYY '
                                     )}
+                                   <div className='ml-1 list-cinema-time-pc'>
+                                   {moment().format( " ~ hh:mm ")}
+                                   </div>
                                   </div>
-                                  <div className=" list-cinema-number text-lg font-semibold">
+                                  <div className="  flex list-cinema-number text-lg font-semibold">
                                     {item.tenRap} 
+                                    <div className=' list-cinema-time-mobile   font-semibold'>
+                                      {moment().format(" - hh:mm")}
+                                    </div>
                                   </div>
                                 </div>
                               );
