@@ -27,20 +27,17 @@ const TrailerVideo = () => {
                 <div>
                     {arrTrailer.length > 0 ? (
                         arrTrailer.map((video, index) => (
-                            <div className='bg-slate-900' key={index}>                                
+                            <div className='bg-slate-900' key={index}>
                                 <div>
-                                    <video id="my-player" className="video-js" controls preload="auto" data-setup="{}">
-                                        <source src={video.trailer} type="video/mp4" />
-                                        <source src={video.trailer} type="video/webm" />
-                                        <source src={video.trailer} type="video/ogg" />
-                                        <p className="vjs-no-js">
-                                            To view this video please enable JavaScript, and consider upgrading to a
-                                            web browser that
-                                            <a href="https://videojs.com/html5-video-support/" target="_blank">
-                                                supports HTML5 video
-                                            </a>
-                                        </p>
-                                    </video>
+                                    <iframe
+                                        width="700"
+                                        height="500"
+                                        src={`https://www.youtube.com/embed/${getYouTubeVideoId(video.trailer)}`}
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                        title="Embedded youtube"
+                                    ></iframe>
 
                                 </div>
 
@@ -61,5 +58,11 @@ const TrailerVideo = () => {
 
     )
 }
+
+function getYouTubeVideoId(url) {
+    const urlObj = new URL(url);
+    return urlObj.searchParams.get('v');
+}
+
 
 export default TrailerVideo

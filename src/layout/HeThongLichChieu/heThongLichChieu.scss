@@ -4,5 +4,10 @@
             @apply bg-rose-400;
             
         }
+        .ant-tabs-tabpane {
+            padding-left: 0 !important;
+        }
+
+
     }
 };

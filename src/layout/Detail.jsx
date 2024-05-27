@@ -16,11 +16,11 @@ const Detail = () => {
     quanLyPhimSer
       .layDanhSachTrailer()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setArrItem(res.data.content);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         setError('Failed to load. Please try again later.');
       })
   }, []);

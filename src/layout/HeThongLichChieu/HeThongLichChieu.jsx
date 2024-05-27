@@ -16,11 +16,12 @@ const HeThongLichChieu = () => {
         quanLyRapSer
           .layThongTinHeThongRap()
           .then((res) => {
-            console.log(res);
+            // console.log(res);
             setArrRap(res.data.content);
+            // setMaHeThongRap(res.date.content[0].maHeThongRap);
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
             setError('Failed to load Rap. Please try again later.');
           })
       }, []);
@@ -39,12 +40,12 @@ const HeThongLichChieu = () => {
                     return {
                         label: <img className='w-16 he_thong_lich_chieu' src={rap.logo} />,
                         key: rap.maHeThongRap,
-                        children: <HeThongCumRap maHeThongRap={maHeThongRap}/>
+                        children: <HeThongCumRap maHeThongRap={rap.maHeThongRap}/>
                     }
                 })}                
                 onChange={activeKey=> {
-                    console.log(activeKey);
-                    setMaHeThongRap(activeKey);
+                    // console.log(activeKey);
+                    // setMaHeThongRap(activeKey);
                 }}
             />
 

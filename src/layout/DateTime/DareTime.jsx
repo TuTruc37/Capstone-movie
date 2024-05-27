@@ -12,7 +12,7 @@ const DareTime = () => {
     );
 
     return (
-        <div>
+        <div > 
             <input
                 type="date"
                 value={formattedDate} // Hiển thị ngày đã định dạng trong input
