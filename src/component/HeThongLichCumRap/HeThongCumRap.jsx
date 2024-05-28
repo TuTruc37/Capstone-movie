@@ -3,6 +3,7 @@ import { Radio, Space, Tabs } from 'antd';
 import { quanLyRapSer } from '../../services/quanLyRapSer';
 import '../HeThongLichCumRap/HeThongCumRap.scss'
 
+
 const HeThongCumRap = ({ maHeThongRap }) => {
   const [arrCumRap, setArrCumRap] = useState([]);
   useEffect(() => {
@@ -30,7 +31,7 @@ const HeThongCumRap = ({ maHeThongRap }) => {
           height: '600px',
         }}
         items={arrCumRap.map((cumRap, index) => {
-          console.log(cumRap);
+          console.log(cumRap.content[0].danhSachPhim);
           return {
             label: (
               <div key={index} className='text-left w-[250px] mx-1'>
@@ -39,6 +40,18 @@ const HeThongCumRap = ({ maHeThongRap }) => {
               </div>
             ),
             key: index,
+            children: (
+              <div>
+                <div>
+                  <img src='' alt="" />
+                </div>
+                <div>
+                  <h1>Ten Phim</h1>
+
+                </div>
+              </div>
+            )
+          
           };
         })}
       />

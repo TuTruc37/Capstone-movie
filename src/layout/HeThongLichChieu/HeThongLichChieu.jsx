@@ -43,10 +43,10 @@ const HeThongLichChieu = () => {
                         children: <HeThongCumRap maHeThongRap={rap.maHeThongRap}/>
                     }
                 })}                
-                onChange={activeKey=> {
-                    // console.log(activeKey);
-                    // setMaHeThongRap(activeKey);
-                }}
+                // onChange={activeKey=> {
+                //     // console.log(activeKey);
+                //     // setMaHeThongRap(activeKey);
+                // }}
             />
 
 

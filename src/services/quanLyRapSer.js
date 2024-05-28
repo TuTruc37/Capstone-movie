@@ -8,5 +8,10 @@ export const quanLyRapSer = {
         return http.get(
             `/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${rap}&maNhom=GP01 `
         );
+    },
+    layThongTinLichChieuPhim: phim => {
+        return http.get(
+            `/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${phim}`
+        );
     }
 };

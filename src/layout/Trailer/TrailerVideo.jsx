@@ -11,7 +11,7 @@ const TrailerVideo = () => {
         quanLyPhimSer
             .layDanhSachTrailer()
             .then((res) => {
-                console.log(res);
+                // console.log(res);
                 setArrTrailer(res.data.content);
             })
             .catch((error) => {
