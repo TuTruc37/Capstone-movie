@@ -10,6 +10,14 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     justify-content: center;
+    @include screen(xl) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr) !important;
+    }
+    @include screen(lg) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
     @include screen(md) {
       display: grid;
       grid-template-columns: repeat(3, 1fr) !important;

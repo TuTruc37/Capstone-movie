@@ -11,7 +11,7 @@ const ListCinemas = ({ idCinema }) => {
       listCinema
         .getListTimeShowTimes(idCinema)
         .then(res => {
-          console.log(res);
+          // console.log(res);
           if (res.data && res.data.content && res.data.content.length > 0) {
             setArrListCinema(res.data.content[0].lstCumRap);
           } else {
