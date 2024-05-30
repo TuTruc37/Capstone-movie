@@ -22,7 +22,8 @@ const useRouteCustom = () => {
     },
     {
       path: path.dangNhap,
-      element: <Login />,
+      element: <Login />, 
+      
     },
     {
       path: path.dangKy,
