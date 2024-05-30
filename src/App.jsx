@@ -1,12 +1,24 @@
 // import 'flowbite/css/flowbite.min.css';
-import 'flowbite/dist/flowbite.css';
+// import 'flowbite/dist/flowbite.css';
 // import 'flowbite/css/flowbite.css';
-
-
-import useRouteCustom from './routes/UseRouteCustom';
+import { createContext } from 'react';
+import UseRouteCustom from './routes/UseRouteCustom';
+import { message } from 'antd';
+export const AlertContext = createContext();
 function App() {
-  const myRoutes = useRouteCustom();
-  return myRoutes;
+  const [messageApi, contextHolder] = message.useMessage();
+  const myRoutes = UseRouteCustom();
+  const handleAlert = (type, content) => {
+    messageApi.open({
+      type,
+      content,
+    });
+  };
+  return (
+    <AlertContext.Provider value={{ handleAlert }}>
+      {contextHolder}
+      {myRoutes}
+    </AlertContext.Provider>
+  );
 }
-
 export default App;
