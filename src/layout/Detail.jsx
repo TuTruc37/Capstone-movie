@@ -16,7 +16,7 @@ const Detail = () => {
     quanLyPhimSer
       .layDanhSachTrailer()
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setArrItem(res.data.content);
       })
       .catch((error) => {
@@ -25,7 +25,7 @@ const Detail = () => {
       })
   }, []);
   return (
-    <div className='bg-slate-400'>
+    <div className='bg-black'>
       {/* Trailer  */}
       <Trailer />
 
@@ -51,10 +51,8 @@ const Detail = () => {
                         <div className='mx-4'>
                           <CalendarOutlined className='mx-2' />
                           <div>
-                            <input type="date" value={item.ngayKhoiChieu} onChange={(e) => handleDateChange(e.target.item.ng)} />
                             <p>{item.ngayKhoiChieu}</p>
                           </div>
-
                         </div>
                       </div>
                       <Rate className='my-2' value={item.danhGia} />

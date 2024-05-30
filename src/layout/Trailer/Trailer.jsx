@@ -38,7 +38,7 @@ const Trailer = () => {
         <div>
           {arrTrailer.length > 0 ? (
             arrTrailer.map((video, index) => (
-              <div className='bg-slate-900' key={index}>
+              <div className='bg-black' key={index}>
                 <img className='opacity-60 hover:opacity-25 h-1/4 mx-96 ' src={video.hinhAnh} alt="nguoivocuoicung" />
               </div>
             ))

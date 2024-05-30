@@ -6,11 +6,12 @@ import Fooder from './layout/Fooder/Fooder';
 
 function App() {
   return (
-    <div className="bg-slate-500">
+    <div className="bg-black">
       <Header />
-      <Routes>
-        <Route path='/chitiet/:id' element={<Detail />} />
-      </Routes>
+      {/* <Routes>
+        <Route path='/chitiet/1322' element={<Detail />} />
+      </Routes> */}
+      <Detail />
       <Fooder />
     </div>
   );

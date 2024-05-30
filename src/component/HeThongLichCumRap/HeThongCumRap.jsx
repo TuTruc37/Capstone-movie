@@ -31,7 +31,7 @@ const HeThongCumRap = ({ maHeThongRap }) => {
           height: '600px',
         }}
         items={arrCumRap.map((cumRap, index) => {
-          console.log(cumRap.content[0].danhSachPhim);
+          // console.log(cumRap.content[0].danhSachPhim);
           return {
             label: (
               <div key={index} className='text-left w-[250px] mx-1'>
