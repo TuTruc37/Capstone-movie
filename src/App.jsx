@@ -1,23 +1,19 @@
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Header from './layout/Header/Header';
+import Detail from './layout/Detail';
+import Fooder from './layout/Fooder/Fooder';
 
-// import Fooder from "./layout/Fooder";
-// import Detail from "./layout/Detail";
-
-import Header from "./layout/Header/Header";
-import Detail from "./layout/Detail";
-import Fooder from "./layout/Fooder/Fooder";
-
-// import 'flowbite/css/flowbite.min.css';
 function App() {
-  // const myRoutes = useRouteCustom();
-  // return myRoutes;
-  return  <>
+  return (
     <div className="bg-slate-500">
       <Header />
-      <Detail />
+      <Routes>
+        <Route path='/chitiet/:id' element={<Detail />} />
+      </Routes>
       <Fooder />
     </div>
-
-  </>;
+  );
 }
 
 export default App;
