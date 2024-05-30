@@ -1,5 +1,6 @@
 import 'flowbite/dist/flowbite';
 import logo from './../../assets/imgs/Logo.png';
+import avatar from "./../../assets/imgs/luffy.jpg";
 import './header.scss';
 const Header = () => {
   return (
@@ -7,7 +8,7 @@ const Header = () => {
       <nav className="bg-white header_navbar  border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a
-            href="https://flowbite.com/"
+            href=""
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img src={logo} className="h-8" alt="Flowbite Logo" />
@@ -27,7 +28,7 @@ const Header = () => {
               <span className="sr-only">Open user menu</span>
               <img
                 className="w-8 h-8 rounded-full"
-                src="/docs/images/people/profile-picture-3.jpg"
+                src={avatar}
                 alt="user photo"
               />
             </button>
@@ -40,9 +41,7 @@ const Header = () => {
                 <span className="block text-sm text-gray-900 dark:text-white">
                   Bonnie Green
                 </span>
-                <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                  name@flowbite.com
-                </span>
+               
               </div>
               <ul
                 className="py-2 header_list"

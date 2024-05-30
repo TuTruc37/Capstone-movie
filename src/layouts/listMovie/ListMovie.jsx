@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { listMovieServices } from '../../services/listMovieService';
 import './listMovie.scss';
 import { Link } from 'react-router-dom';
+import movie1 from './../../assets/imgs/listMovie-1.png';
+import movie2 from './../../assets/imgs/listMovie-2.png';
+import movie3 from './../../assets/imgs/listMovie-3.png';
+import movie4 from './../../assets/imgs/listMovie-4.png';
 
 const ListMovie = () => {
   const [arrMovie, setArrMovie] = useState([]);
@@ -21,7 +25,7 @@ const ListMovie = () => {
   return (
     <div className="list_movie bg-black">
       <div className="container">
-        <h2 className="p-2 font-semibold text-white text-lg">
+        <h2 className="p-2 font-semibold text-white text-lg mt-10">
           Movie Trending___
         </h2>
         <div className="list_movie_inner p-2 gap-5">
@@ -64,11 +68,11 @@ const ListMovie = () => {
               </div>
             </div>
           ))}
+          <h2 className="text_heading col-span-6 p-0 font-semibold text-lg text-white">
+            Coming soon___
+          </h2>
           {arrMovie.length > 12 && (
             <>
-              <h2 className="text_heading col-span-6 p-0 font-semibold text-lg text-white">
-                Coming soon___
-              </h2>
               {arrMovie.slice(12).map((item, index) => (
                 <div key={index + 12}>
                   <div className="list_movies">
@@ -110,6 +114,49 @@ const ListMovie = () => {
               ))}
             </>
           )}
+        </div>
+        <div className="list-movie-coming-soon">
+          <div className="list-movie-coming-media">
+            <img src={movie1} alt="" />
+            <div className="list-movie-coming-content">
+              <h2 className="list-movie-coming-heading ">Kung Fu Panda 4</h2>
+              <p className="list-movie-coming-text">
+                Po must train a new warrior when he's chosen to become the
+                spiritual leader of the Valley of Peace. However, when a
+                powerful shape-shifting sorceress sets her eyes on his Staff of
+                Wisdom,
+              </p>
+              <h3 className="list-movie-coming-time">2hr 10m</h3>
+            </div>
+          </div>
+          <div className=" space-y-5">
+            <div className="list-movie-coming-media">
+              <img src={movie2} alt="" />
+              <div className="list-movie-coming-content">
+                <h2 className="list-movie-coming-heading list-movie-coming-heading-mobile ">
+                  The Lord of the ring
+                </h2>
+
+                <h3 className="list-movie-coming-time list-movie-coming-time-mobile">2hr 10m</h3>
+              </div>
+            </div>
+            <div className="list-movie-coming-media">
+              <img src={movie3} alt="" />
+              <div className="list-movie-coming-content">
+                <h2 className="list-movie-coming-heading list-movie-coming-heading-mobile ">War of Kingdom</h2>
+
+                <h3 className="list-movie-coming-time list-movie-coming-time-mobile">2hr 10m</h3>
+              </div>
+            </div>
+            <div className="list-movie-coming-media">
+              <img src={movie4} alt="" />
+              <div className="list-movie-coming-content">
+                <h2 className="list-movie-coming-heading list-movie-coming-heading-mobile ">Civil War</h2>
+
+                <h3 className="list-movie-coming-time list-movie-coming-time-mobile">2hr 10m</h3>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
