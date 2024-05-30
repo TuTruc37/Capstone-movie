@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRoutes } from 'react-router-dom';
 import { path } from '../common/path';
 import Login from '../pages/LoginAndRegister/Login';
@@ -7,10 +6,19 @@ import NotFound from '../pages/NotFound/NotFound';
 import AdminTemplate from '../templates/AdminTemplates/AdminTemplate';
 import FilmsManager from '../pages/Films/FilmsManager/FilmsManager';
 import CreateFilms from '../pages/Films/CreateFilms/CreateFilms';
+import HomeTemplate from '../templates/homTemplate/HomeTemplate';
+import HomePage from '../pages/homePage/HomePage';
 const useRouteCustom = () => {
   const route = useRoutes([
     {
       path: path.trangChu,
+      element: <HomeTemplate />,
+      children: [
+        {
+          index: true,
+          element: <HomePage />,
+        },
+      ],
     },
     {
       path: path.dangNhap,

@@ -1,0 +1,44 @@
+// @import './../../assets/styles/breakpoint';
+@import './../../assets/styles/breakpoint.scss';
+.banner {
+  @include screen(xxl) {
+    height: 750px ;
+  }
+  @include screen(xl) {
+    height: 600px;
+  }
+  @include screen(lg) {
+    height: 500px;
+  }
+  @include screen(md) {
+    height: 400px;
+  }
+  @include screen(sm) {
+    height: 300px;
+  }
+}
+.banner-home {
+  .slick-prev {
+    inset-inline-start: 10px;
+    font-size: 30px;
+    z-index: 10;
+    color: #fff;
+    &::before {
+      font-size: 0;
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+  .slick-next {
+    inset-inline-end: 20px;
+    font-size: 30px;
+    color: #fff;
+    &::before {
+      font-size: 0;
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+}

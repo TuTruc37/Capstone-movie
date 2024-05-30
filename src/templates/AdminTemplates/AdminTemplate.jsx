@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Layout, Menu, theme } from 'antd';
 import { Link, Outlet } from 'react-router-dom';
 import { path } from '../../common/path';
 import { handleGetValueLocalStore } from '../../utils/utils';
-const { Header, Content, Footer, Sider } = Layout;
-
+const { Content, Footer, Sider } = Layout;
+import Header from '../../layouts/header/Header';
 const arrMenu = [
   {
     label: 'Users',
@@ -74,7 +74,7 @@ const AdminTemplate = () => {
         />
       </Sider>
       <Layout>
-        {/* Header */}
+        <Header />
         <Content
           style={{
             margin: '0 16px',
@@ -96,7 +96,7 @@ const AdminTemplate = () => {
             textAlign: 'center',
           }}
         >
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+          © 2024 . All Rights Reserved.
         </Footer>
       </Layout>
     </Layout>
