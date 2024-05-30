@@ -23,21 +23,25 @@ const ChiTietPhongVe = () => {
   const chonGhe = (stt) => {
     if (!gheDaChon.includes(stt)) {
       setGheDaChon([...gheDaChon, stt])
+    } else {
+      setGheDaChon(gheDaChon.filter(ghe => ghe !== stt));
     }
   }
 
   useEffect(() => {
-    let tongTien = 0
-    data?.content?.danhSachGhe.filter(ghe => {
+    let tongTien = 0;
+    let gheDaChonMoi = [];
+  
+    data?.content?.danhSachGhe.forEach(ghe => {
       if (gheDaChon.includes(ghe.stt)) {
-        tongTien += ghe.giaVe
-
-        setDanhSachGheDaChon([...danhSachGheDaChon, `${ghe.stt} - ${ghe.giaVe}`])
+        tongTien += ghe.giaVe;
+        gheDaChonMoi.push(`${ghe.stt} - ${ghe.giaVe}`);
       }
-
-      setTotal(tongTien)
-    })
-  }, [gheDaChon])
+    });
+  
+    setDanhSachGheDaChon(gheDaChonMoi);
+    setTotal(tongTien);
+  }, [gheDaChon]);
 
   return (
     <>
