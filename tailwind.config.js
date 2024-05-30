@@ -3,7 +3,7 @@ export default {
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
-    // './node_modules/flowbite-react/lib/esm/**/*.jsx',
+    './node_modules/flowbite-react/lib/esm/**/*.jsx',
   ],
 
   theme: {
@@ -13,5 +13,5 @@ export default {
       },
     },
   },
-  // plugins: [require('flowbite/plugin')],
+  plugins: [require('flowbite/plugin')],
 };
