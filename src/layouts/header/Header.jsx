@@ -1,6 +1,6 @@
 import 'flowbite/dist/flowbite';
 import logo from './../../assets/imgs/Logo.png';
-import avatar from "./../../assets/imgs/luffy.jpg";
+import avatar from './../../assets/imgs/luffy.jpg';
 import './header.scss';
 const Header = () => {
   return (
@@ -41,7 +41,6 @@ const Header = () => {
                 <span className="block text-sm text-gray-900 dark:text-white">
                   Bonnie Green
                 </span>
-               
               </div>
               <ul
                 className="py-2 header_list"
@@ -72,22 +71,21 @@ const Header = () => {
                   </a>
                 </li>
                 <li>
-                 
                   <div className="">
-                <span className="block text-sm text-gray-900 dark:text-white">
-                </span>
-                <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                  >
-                    Sign out
-                  </a> <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                  >
-                    Sign in
-                  </a>
-              </div>
+                    <span className="block text-sm text-gray-900 dark:text-white"></span>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Sign out
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Sign in
+                    </a>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -147,12 +145,18 @@ const Header = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="block py-2 px-3 text-white rounded hover:text-red-500">
+                <a
+                  href="#"
+                  className="block py-2 px-3 text-white rounded hover:text-red-500"
+                >
                   Pricing
                 </a>
               </li>
               <li>
-                <a href="#" className="block py-2 px-3 text-white rounded  hover:text-red-500">
+                <a
+                  href="#"
+                  className="block py-2 px-3 text-white rounded  hover:text-red-500"
+                >
                   Contact
                 </a>
               </li>
