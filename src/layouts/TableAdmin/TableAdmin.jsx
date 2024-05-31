@@ -1,8 +1,10 @@
 import { Table } from 'antd';
 import React, { useContext } from 'react';
 import { AlertContext } from '../../App';
-
-const TableAdmin = ({ arrFilms }) => {
+import { path } from '../../common/path';
+import { Link } from 'react-router-dom';
+import { quanLyPhimServ } from '../../services/quanLyPhimServ';
+const TableAdmin = ({ arrFilms, handleGetAllUser }) => {
   const { handleAlert } = useContext(AlertContext);
 
   const columns = [
@@ -15,7 +17,7 @@ const TableAdmin = ({ arrFilms }) => {
       title: 'Hình ảnh',
       dataIndex: 'hinhAnh',
       render: hinhAnh => (
-        <img src={hinhAnh} alt="Hình ảnh" className='w-[900px]' />
+        <img src={hinhAnh} alt="Hình ảnh" className="w-[900px]" />
       ),
     },
     {
@@ -32,10 +34,32 @@ const TableAdmin = ({ arrFilms }) => {
       dataIndex: 'taiKhoan',
       render: (text, record) => (
         <div className="flex">
-          <button className="py-2 px-4 rounded text-white bg-yellow-300 mr-3">
-            <i className="fa-solid fa-pen"></i>
-          </button>
-          <button className="py-2 px-4 rounded text-white bg-red-500 mr-3">
+          <Link to={path.admin.editFilms}>
+            <button
+              className="py-2 px-4 rounded text-white bg-yellow-300 mr-3"
+              // onClick={() => handleUpdateUser(record)}
+            >
+              <i className="fa-solid fa-pen"></i>
+            </button>
+          </Link>
+          <button
+            onClick={() => {
+              console.log(text);
+              console.log(record);
+              quanLyPhimServ
+                .XoaPhim(record.maPhim)
+                .then(res => {
+                  console.log(res);
+                  handleGetAllUser();
+                  handleAlert('success', 'Đã xoá thành công');
+                })
+                .catch(err => {
+                  console.log(err);
+                  handleAlert('error', err.response.data.content);
+                });
+            }}
+            className="py-2 px-4 rounded text-white bg-red-500 mr-3"
+          >
             <i className="fa-solid fa-trash"></i>
           </button>
         </div>

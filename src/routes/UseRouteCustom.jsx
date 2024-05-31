@@ -9,7 +9,7 @@ import CreateFilms from '../pages/Films/CreateFilms/CreateFilms';
 import HomeTemplate from '../templates/homTemplate/HomeTemplate';
 import HomePage from '../pages/homePage/HomePage';
 import ChiTietPhongVe from '../templates/ChiTietPhongVe';
-
+import EditFilm from '../pages/Films/EditFilm/EditFilm';
 const useRouteCustom = () => {
   const route = useRoutes([
     {
@@ -41,6 +41,10 @@ const useRouteCustom = () => {
         {
           path: path.admin.addNew,
           element: <CreateFilms />,
+        },
+        {
+          path: path.admin.editFilms,
+          element: <EditFilm />,
         },
       ],
     },
