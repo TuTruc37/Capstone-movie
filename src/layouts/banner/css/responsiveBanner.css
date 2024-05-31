@@ -1,0 +1,10 @@
+@media (max-width: 575.98px) {
+  .banner {
+    height: 200px;
+  }
+}
+@media (max-width: 767.98px) {
+  .banner {
+    height: 500px;
+  }
+}/*# sourceMappingURL=responsiveBanner.css.map */

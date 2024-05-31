@@ -1,0 +1,99 @@
+@import './../../abstracts/breakpoint';
+.carousel-container {
+  .carousel-slide {
+    display: flex !important;
+    justify-content: center;
+    gap: 4px;
+  }
+  .slick-prev,
+  .slick-next {
+    @include screen (sm){
+      background: red;
+    }
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+    &::before {
+      font-size: 0;
+    }
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+  }
+  .slick-next {
+    font-size: 20px;
+    @include screen (sm){
+      margin-right: 30px;
+    }
+    @include screen (md){
+      margin-right: 30px;
+      background: red;
+    }
+    @include screen (lg){
+      margin-right: 30px;
+      background: red;
+
+    }
+  }
+  .slick-prev {
+    font-size: 20px;
+    @include screen (sm){
+      margin-left: 30px;
+      z-index: 999;
+    }
+    @include screen (md){
+      margin-left: 30px;
+      z-index: 999;
+      background: red;
+
+    } @include screen (lg){
+      margin-left: 30px;
+      z-index: 999;
+      background: red;
+
+    }
+  }
+}
+.ant-tabs-nav-wrap {
+  justify-content: center;
+}
+.ant-tabs-tab {
+  color: #fff !important;
+  background-color: #000 !important;
+}
+.ant-tabs-tab-btn {
+  color: #fff !important;
+  background-color: #000;
+}
+.carousel-container .carousel-slide img {
+  
+  @include screen (sm){
+   max-width: 100% !important;
+  }
+}
+
+.carousel-container  .carousel-slide{
+  @include screen(md){
+    overflow: hidden !important;
+    display: grid !important;
+    grid-template-columns: repeat(4,1fr) !important;
+  }
+  @include screen(lg){
+    overflow: hidden !important;
+    display: grid !important;
+    grid-template-columns: repeat(4,1fr) !important;
+  }
+  
+
+  @include screen(sm){
+    overflow: hidden !important;
+    display: grid !important;
+    grid-template-columns: repeat(4,1fr) !important;
+  }
+}
