@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { listMovieServices } from '../../services/listMovieService';
 import './listMovie.scss';
-import TableAdmin from '../TableAdmin/TableAdmin';
 import { Link } from 'react-router-dom';
 import { path } from '../../common/path';
 import movie1 from './../../assets/imgs/listMovie-1.png';
@@ -22,20 +21,6 @@ const ListMovie = () => {
         console.error(err);
       });
   }, []);
-
-  const handleDeleteFilm = async maPhim => {
-    try {
-      await listMovieServices.deleteMovie(maPhim);
-      // Cập nhật danh sách phim sau khi xóa
-      setArrMovie(prevArrMovie =>
-        prevArrMovie.filter(movie => movie.maPhim !== maPhim)
-      );
-      alert('Xóa phim thành công!');
-    } catch (error) {
-      console.error('Error deleting film:', error);
-      alert('Xóa phim không thành công!');
-    }
-  };
 
   return (
     <div className="list_movie bg-black">

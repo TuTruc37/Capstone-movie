@@ -1,7 +1,9 @@
-import React from 'react';
 import { Table } from 'antd';
-
-const TableAdmin = ({ arrFilms, onDeleteFilm }) => {
+import React, { useContext } from 'react';
+import { AlertContext } from '../../App';
+const TableAdmin = ({ arrFilms }) => {
+  console.log(arrFilms);
+  const { handleAlert } = useContext(AlertContext);
   const columns = [
     {
       title: 'Mã phim',
@@ -14,15 +16,12 @@ const TableAdmin = ({ arrFilms, onDeleteFilm }) => {
     {
       title: 'Hình ảnh',
       dataIndex: 'hinhAnh',
-      render: hinhAnh => (
-        <img src={hinhAnh} alt="Hình ảnh" style={{ width: 50, height: 70 }} />
-      ),
     },
     {
       title: 'Tên phim',
       dataIndex: 'tenPhim',
       sorter: {
-        compare: (a, b) => a.tenPhim.localeCompare(b.tenPhim),
+        compare: (a, b) => a.tenPhim - b.tenPhim,
         multiple: 1,
       },
     },
@@ -32,29 +31,38 @@ const TableAdmin = ({ arrFilms, onDeleteFilm }) => {
     },
     {
       title: 'Chức năng',
-      dataIndex: 'maPhim',
-      render: maPhim => (
-        <div className="flex">
-          <button
-            className="py-2 px-4 rounded text-white bg-red-500 mr-3"
-            onClick={() => onDeleteFilm(maPhim)} // Gọi hàm onDeleteFilm để xóa phim
-          >
-            <i className="fa-solid fa-trash"></i>
-          </button>
-        </div>
-      ),
+      dataIndex: 'taiKhoan',
+      render: (text, record) => {
+        // console.log(record);
+        return (
+          <>
+          <div className='flex'>
+          <button className="py-2 px-4 rounded text-white bg-yellow-300 mr-3">
+              <i className="fa-solid fa-pen"></i>
+            </button>
+            <button className="py-2 px-4 rounded text-white bg-red-500 mr-3">
+              <i className="fa-solid fa-trash"></i>
+            </button>
+          </div>
+          </>
+        );
+      },
     },
   ];
-
+  const onChange = (pagination, filters, sorter, extra) => {
+    console.log('params', pagination, filters, sorter, extra);
+  };
   return (
-    <Table
-      columns={columns}
-      dataSource={arrFilms}
-      rowKey="maPhim" // Sử dụng maPhim làm key cho các hàng
-      pagination={{
-        defaultPageSize: 20,
-      }}
-    />
+    <div>
+      <Table
+        columns={columns}
+        dataSource={arrFilms}
+        pagination={{
+          defaultPageSize: 20,
+        }}
+        onChange={onChange}
+      />
+    </div>
   );
 };
 
