@@ -23,14 +23,14 @@ const Trailer = () => {
     listMovieServices
       .getTrailer()
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setArrTrailer(res.data.content);
       })
       .catch((error) => {
         console.log(error);
         setError('Failed to load videos. Please try again later.');
       })
-  
+
   }, []);
   return (
     <>
@@ -39,9 +39,10 @@ const Trailer = () => {
         <div>
           {arrTrailer.length > 0 ? (
             arrTrailer.map((video, index) => (
-              <div className='bg-black' key={index}>
-                <img className='opacity-60 hover:opacity-25 h-1/4 mx-96 ' src={video.hinhAnh} alt="nguoivocuoicung" />
+              <div className="justify-center flex" key={index}>
+                <img className="  opacity-60 hover:opacity-25 h-1/4" src={video.hinhAnh} alt={video.biDanh} />
               </div>
+
             ))
           ) : (
             <div>No videos available.</div>
@@ -56,7 +57,7 @@ const Trailer = () => {
           onClick={openModal}
           className="rounded-3xl bg-black/20 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
         >
-        <PlayCircleOutlined style={{fontSize: '50px'}}/>
+          <PlayCircleOutlined style={{ fontSize: '50px' }} />
         </button>
       </div>
 
@@ -85,12 +86,12 @@ const Trailer = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel style={{width: '700px'}} className="transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">                  
+                <Dialog.Panel style={{ width: '700px' }} className="transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">
                   <div className="mt-2">
-                    <TrailerVideo/>
+                    <TrailerVideo />
                   </div>
 
-                  
+
                 </Dialog.Panel>
               </Transition.Child>
             </div>

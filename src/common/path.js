@@ -6,5 +6,5 @@ export const path = {
     films: '/admin/films',
     addNew: '/admin/films/addnew',
   },
-  chitiet: '/detail',
+  chiTiet: '/detail',
 };
