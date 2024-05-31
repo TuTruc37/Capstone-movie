@@ -12,16 +12,6 @@ import ChiTietPhongVe from '../templates/ChiTietPhongVe';
 
 const useRouteCustom = () => {
   const route = useRoutes([
-    // {
-    //   path: path.trangChu,
-    //   element: <HomeTemplate />,
-    //   children: [
-    //     {
-    //       index: true,
-    //       element: <HomePage />,
-    //     },
-    //   ],
-    // },
     {
       path: path.trangChu,
       element: <HomeTemplate />,
@@ -34,8 +24,7 @@ const useRouteCustom = () => {
     },
     {
       path: path.dangNhap,
-      element: <Login />, 
-      
+      element: <Login />,
     },
     {
       path: path.dangKy,
@@ -56,8 +45,8 @@ const useRouteCustom = () => {
       ],
     },
     {
-      path: 'chitietphongve/:maLichChieu',
-      element: <ChiTietPhongVe />
+      path: path.chiTietPhongVe,
+      element: <ChiTietPhongVe />,
     },
     {
       path: '*',

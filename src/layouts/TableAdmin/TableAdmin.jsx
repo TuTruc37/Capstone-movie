@@ -36,12 +36,14 @@ const TableAdmin = ({ arrFilms }) => {
         // console.log(record);
         return (
           <>
-            <button className="py-2 px-4 rounded text-white bg-yellow-600 mr-3">
+          <div className='flex'>
+          <button className="py-2 px-4 rounded text-white bg-yellow-300 mr-3">
               <i className="fa-solid fa-pen"></i>
             </button>
-            <button className="py-2 px-4 rounded text-white bg-red-600 mr-3">
+            <button className="py-2 px-4 rounded text-white bg-red-500 mr-3">
               <i className="fa-solid fa-trash"></i>
             </button>
+          </div>
           </>
         );
       },
