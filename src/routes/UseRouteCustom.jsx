@@ -15,47 +15,6 @@ const useRouteCustom = () => {
   const route = useRoutes([
     {
       path: path.trangChu,
-      element: <HomeTemplate />,
-      children: [
-        {
-          index: true,
-          element: <HomePage />,
-        },
-      ],
-    },
-    {
-      path: path.dangNhap,
-      element: <Login />,
-    },
-    {
-      path: path.dangKy,
-      element: <Register />,
-    },
-    {
-      path: path.admin.films,
-      element: <AdminTemplate />,
-      children: [
-        {
-          index: true,
-          element: <FilmsManager />,
-        },
-        {
-          path: path.admin.addNew,
-          element: <CreateFilms />,
-        },
-        {
-          path: path.admin.editFilms,
-          element: <EditFilm />,
-        },
-      ],
-    },
-    {
-      path: path.chiTietPhongVe,
-      element: <ChiTietPhongVe />,
-    },
-    {
-      path: '*',
-      element: <NotFound />,
     },
   ]);
 

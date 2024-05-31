@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import videojs from 'video.js';
 import 'video.js/dist/video-js.css';
-import { quanLyPhimSer } from '../../services/quanLyPhimSer';
+import { listMovieServices } from '../../services/listMovieService';
+
 
 const TrailerVideo = () => {
     const [arrTrailer, setArrTrailer] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        quanLyPhimSer
-            .layDanhSachTrailer()
+        listMovieServices
+            .getTrailer()
             .then((res) => {
                 // console.log(res);
                 setArrTrailer(res.data.content);
