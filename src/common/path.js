@@ -8,5 +8,4 @@ export const path = {
     addNew: '/admin/films/add-new',
   },
   chiTietPhongVe: '/chitietphongve/:maLichChieu',
-  // Thêm các đường dẫn khác nếu có
 };

@@ -1,69 +1,41 @@
+// components/TableAdmin/TableAdmin.js
 import { Table } from 'antd';
-import React, { useContext } from 'react';
-import { AlertContext } from '../../App';
-const TableAdmin = ({ arrFilms }) => {
-  console.log(arrFilms);
-  const { handleAlert } = useContext(AlertContext);
+
+const TableAdmin = () => {
   const columns = [
     {
       title: 'Mã phim',
       dataIndex: 'maPhim',
-      sorter: {
-        compare: (a, b) => a.maPhim - b.maPhim,
-        multiple: 1,
-      },
-    },
-    {
-      title: 'Hình ảnh',
-      dataIndex: 'hinhAnh',
+      key: 'maPhim',
     },
     {
       title: 'Tên phim',
       dataIndex: 'tenPhim',
-      sorter: {
-        compare: (a, b) => a.tenPhim - b.tenPhim,
-        multiple: 1,
-      },
+      key: 'tenPhim',
     },
     {
-      title: 'Mô tả',
-      dataIndex: 'moTa',
+      title: 'Hình ảnh',
+      dataIndex: 'hinhAnh',
+      key: 'hinhAnh',
+      render: text => <img src={text} alt="film" style={{ width: '100px' }} />,
     },
     {
-      title: 'Chức năng',
-      dataIndex: 'taiKhoan',
-      render: (text, record) => {
-        // console.log(record);
-        return (
-          <>
-          <div className='flex'>
-          <button className="py-2 px-4 rounded text-white bg-yellow-300 mr-3">
-              <i className="fa-solid fa-pen"></i>
-            </button>
-            <button className="py-2 px-4 rounded text-white bg-red-500 mr-3">
-              <i className="fa-solid fa-trash"></i>
-            </button>
-          </div>
-          </>
-        );
-      },
+      title: 'Hành động',
+      key: 'action',
+      render: (text, record) => (
+        <div className="space-x-3">
+          <span>
+            <button className="py-2 px-5 bg-yellow-300">sửa</button>
+          </span>
+          <span>
+            <button className="py-2 px-5 bg-red-500">Xóa</button>
+          </span>
+        </div>
+      ),
     },
   ];
-  const onChange = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra);
-  };
-  return (
-    <div>
-      <Table
-        columns={columns}
-        dataSource={arrFilms}
-        pagination={{
-          defaultPageSize: 20,
-        }}
-        onChange={onChange}
-      />
-    </div>
-  );
+
+  return <Table dataSource={arrFilms} columns={columns} rowKey="maPhim" />;
 };
 
 export default TableAdmin;

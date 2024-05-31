@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { listMovieServices } from '../../services/listMovieService';
+// src/components/ListMovie/ListMovie.js
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import './listMovie.scss';
 import { Link } from 'react-router-dom';
 import { path } from '../../common/path';
-import movie1 from './../../assets/imgs/listMovie-1.png';
-import movie2 from './../../assets/imgs/listMovie-2.png';
-import movie3 from './../../assets/imgs/listMovie-3.png';
-import movie4 from './../../assets/imgs/listMovie-4.png';
+import movie1 from '../../assets/imgs/listMovie-1.png';
+import movie2 from '../../assets/imgs/listMovie-2.png';
+import movie3 from '../../assets/imgs/listMovie-3.png';
+import movie4 from '../../assets/imgs/listMovie-4.png';
 
 const ListMovie = () => {
-  const [arrMovie, setArrMovie] = useState([]);
+  const dispatch = useDispatch();
+  const arrMovie = useSelector(state => state.movies.arrMovie);
+  // const movieStatus = useSelector(state => state.movies.status);
 
   useEffect(() => {
-    listMovieServices
-      .getListMovie()
-      .then(res => {
-        setArrMovie(res.data.content);
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  }, []);
+    if (movieStatus === 'idle') {
+      dispatch(fetchMovies());
+    }
+  }, [movieStatus, dispatch]);
+
+  
 
   return (
     <div className="list_movie bg-black">
@@ -28,6 +28,7 @@ const ListMovie = () => {
         <h2 className="p-2 font-semibold text-white text-lg mt-10">
           Movie Trending___
         </h2>
+       
         <div className="list_movie_inner p-2 gap-5">
           {arrMovie.slice(0, 12).map((item, index) => (
             <div key={index} className="list_movies">
