@@ -1,12 +1,11 @@
 // import React from 'react'
 import { CalendarOutlined, FieldTimeOutlined } from '@ant-design/icons'
-import Trailer from './Trailer/Trailer'
 import { Rate } from 'antd'
-import Tag from '../component/Tag'
+import Tag from '../../Tag';
 import React, { useEffect, useState } from 'react'
-// import HeThongLichChieu from './HeThongLichChieu/HeThongLichChieu'
-import { listMovieServices } from '../services/listMovieService'
-import ShowTimes from './showTimes/ShowTimes'
+import Trailer from '../../../layout/Trailer/Trailer'
+import { listMovieServices } from '../../../services/listMovieService'
+import ShowTimes from '../../../layout/showTimes/ShowTimes'
 
 
 const Detail = () => {
