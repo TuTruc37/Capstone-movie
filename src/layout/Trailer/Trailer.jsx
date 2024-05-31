@@ -1,8 +1,9 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { quanLyPhimSer } from '../../services/quanLyPhimSer';
 import { PlayCircleOutlined } from '@ant-design/icons';
 import TrailerVideo from './TrailerVideo';
+import { listMovieServices } from '../../services/listMovieService';
+
 
 
 const Trailer = () => {
@@ -19,8 +20,8 @@ const Trailer = () => {
 
 
   useEffect(() => {
-    quanLyPhimSer
-      .layDanhSachTrailer()
+    listMovieServices
+      .getTrailer()
       .then((res) => {
         // console.log(res);
         setArrTrailer(res.data.content);
