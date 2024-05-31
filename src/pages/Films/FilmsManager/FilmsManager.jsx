@@ -19,6 +19,7 @@ const FilmsManager = () => {
         console.log(err);
       });
   };
+
   return (
     <div className="py-16">
       <h1 className="text-2xl font-bold">Quản lý phim</h1>
@@ -27,7 +28,7 @@ const FilmsManager = () => {
           <i className="fas fa-plus-circle"></i> Thêm phim
         </Link>
       </button>
-      <TableAdmin arrFilms={arrFilms} />
+      <TableAdmin arrFilms={arrFilms} handleGetAllUser={handleGetAllUser} />
     </div>
   );
 };
