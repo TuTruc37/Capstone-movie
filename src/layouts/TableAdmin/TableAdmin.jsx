@@ -1,9 +1,11 @@
+// TableAdmin.jsx
 import { Table } from 'antd';
 import React, { useContext } from 'react';
 import { AlertContext } from '../../App';
 import { path } from '../../common/path';
 import { Link } from 'react-router-dom';
 import { quanLyPhimServ } from '../../services/quanLyPhimServ';
+
 const TableAdmin = ({ arrFilms, handleGetAllUser }) => {
   const { handleAlert } = useContext(AlertContext);
 
@@ -17,7 +19,7 @@ const TableAdmin = ({ arrFilms, handleGetAllUser }) => {
       title: 'Hình ảnh',
       dataIndex: 'hinhAnh',
       render: hinhAnh => (
-        <img src={hinhAnh} alt="Hình ảnh" className="w-[900px]" />
+        <img src={hinhAnh} alt="Hình ảnh" className="w-[100px]" />
       ),
     },
     {
@@ -31,30 +33,22 @@ const TableAdmin = ({ arrFilms, handleGetAllUser }) => {
     },
     {
       title: 'Chức năng',
-      dataIndex: 'taiKhoan',
       render: (text, record) => (
         <div className="flex">
-          <Link to={path.admin.editFilms}>
-            <button
-              className="py-2 px-4 rounded text-white bg-yellow-300 mr-3"
-              // onClick={() => handleUpdateUser(record)}
-            >
+          <Link to={path.admin.editFilms(record.maPhim)}>
+            <button className="py-2 px-4 rounded text-white bg-yellow-300 mr-3">
               <i className="fa-solid fa-pen"></i>
             </button>
           </Link>
           <button
             onClick={() => {
-              console.log(text);
-              console.log(record);
               quanLyPhimServ
                 .XoaPhim(record.maPhim)
                 .then(res => {
-                  console.log(res);
                   handleGetAllUser();
                   handleAlert('success', 'Đã xoá thành công');
                 })
                 .catch(err => {
-                  console.log(err);
                   handleAlert('error', err.response.data.content);
                 });
             }}
@@ -67,21 +61,7 @@ const TableAdmin = ({ arrFilms, handleGetAllUser }) => {
     },
   ];
 
-  const onChange = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra);
-  };
-
-  return (
-    <div>
-      <Table
-        columns={columns}
-        dataSource={arrFilms}
-        rowKey="maPhim"
-        pagination={{ defaultPageSize: 20 }}
-        onChange={onChange}
-      />
-    </div>
-  );
+  return <Table columns={columns} dataSource={arrFilms} rowKey="maPhim" />;
 };
 
 export default TableAdmin;

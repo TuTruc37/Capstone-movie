@@ -10,4 +10,7 @@ export const quanLyPhimServ = {
   XoaPhim: maPhim => {
     return http.delete(`/QuanLyPhim/XoaPhim?maPhim=${maPhim}`);
   },
+  layThongTinPhim: maPhim => {
+    return http.get(`/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`);
+  }
 };
