@@ -9,7 +9,7 @@ import { path } from '../../../common/path';
 import { handleSetValueLocalStore } from '../../../utils/utils';
 import { useDispatch } from 'react-redux';
 import { handleGetValue } from '../../../redux/slice/userSlice';
-import styles from './formRegister.module.css';
+import styles from './formRegister.module.scss';
 const FormRegister = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -78,7 +78,6 @@ const FormRegister = () => {
         <h1 className="md:text-2xl font-bold leading-tight mt-12">
           Tạo tài khoản riêng của bạn
         </h1>
-
         <InputCustom
           label="Tài khoản"
           name="taiKhoan"
@@ -88,6 +87,7 @@ const FormRegister = () => {
           error={errors.taiKhoan}
           touched={touched.taiKhoan}
           value={values.taiKhoan}
+          labelColor="text-white"
         />
         <InputCustom
           label="Email"
@@ -98,6 +98,7 @@ const FormRegister = () => {
           error={errors.email}
           touched={touched.email}
           value={values.email}
+          labelColor="text-white"
         />
         <InputCustom
           label="Số điện thoại"
@@ -108,7 +109,9 @@ const FormRegister = () => {
           error={errors.soDt}
           touched={touched.soDt}
           value={values.soDt}
+          labelColor="text-white"
         />
+
         <InputCustom
           label="Mật khẩu"
           name="matKhau"
@@ -120,6 +123,7 @@ const FormRegister = () => {
           touched={touched.matKhau}
           className="col-span-2"
           value={values.matKhau}
+          labelColor="text-white"
         />
         <InputCustom
           label="Nhập lại mật khẩu"
@@ -132,6 +136,7 @@ const FormRegister = () => {
           touched={touched.nhapLaiMatKhau}
           className="col-span-2"
           value={values.nhapLaiMatKhau}
+          labelColor="text-white"
         />
         <div>
           <button
