@@ -10,7 +10,9 @@ import HomeTemplate from '../templates/homTemplate/HomeTemplate';
 import HomePage from '../pages/homePage/HomePage';
 import ChiTietPhongVe from '../templates/ChiTietPhongVe';
 import EditFilm from '../pages/Films/EditFilm/EditFilm';
-
+import UserManager from '../pages/User/UserManage/UserManage';
+import CreateUser from '../pages/User/CreateUser/CreateUser';
+import Profile from '../pages/Profile/Profile';
 const useRouteCustom = () => {
   const route = useRoutes([
     {
@@ -48,6 +50,25 @@ const useRouteCustom = () => {
           element: <EditFilm />,
         },
       ],
+    },
+    {
+      path: path.admin.quanLy,
+      element: <AdminTemplate />,
+      children: [
+        {
+          // index: true,
+          path: path.admin.quanLy,
+          element: <UserManager />,
+        },
+        {
+          path: path.admin.quanLyNguoiDung,
+          element: <CreateUser />,
+        },
+      ],
+    },
+    {
+      path: path.profile,
+      element: <Profile />,
     },
     {
       path: path.chiTietPhongVe,

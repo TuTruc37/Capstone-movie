@@ -1,0 +1,35 @@
+.blocTabs {
+  display: flex;
+}
+
+.tabs {
+  position: relative;
+  padding: 10px;
+  top: -35px;
+  color: white;
+}
+.activeTabs {
+  background: white;
+  border-bottom: 1px solid transparent;
+  color: black;
+}
+.activeTabs::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background: #1a56db;
+}
+.content {
+  position: relative;
+  display: none;
+}
+.activeContent {
+  display: block;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}

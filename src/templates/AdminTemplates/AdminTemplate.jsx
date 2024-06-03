@@ -7,7 +7,7 @@ const { Content, Footer, Sider } = Layout;
 import Header from '../../layouts/header/Header';
 const arrMenu = [
   {
-    label: 'Users',
+    label: <Link to={path.admin.quanLy}>Users</Link>,
     icon: <i className="fa-solid fa-user"></i>,
   },
   {

@@ -11,12 +11,13 @@ const InputCustom = ({
   touched,
   className,
   value,
+  labelColor,
 }) => {
   return (
     <div className={className}>
       <label
         htmlFor="first_name"
-        className="block mb-2 font-medium text-white text-lg "
+        className={`block mb-2 font-medium ${labelColor} text-lg `}
       >
         {label}
       </label>
