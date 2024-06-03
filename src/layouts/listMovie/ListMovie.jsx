@@ -7,6 +7,7 @@ import movie1 from './../../assets/imgs/listMovie-1.png';
 import movie2 from './../../assets/imgs/listMovie-2.png';
 import movie3 from './../../assets/imgs/listMovie-3.png';
 import movie4 from './../../assets/imgs/listMovie-4.png';
+import TableFilms from './../TableAdmin/TableAdmin';  // Import TableFilms instead of TableAdmin
 
 const ListMovie = () => {
   const [arrMovie, setArrMovie] = useState([]);
@@ -21,6 +22,17 @@ const ListMovie = () => {
         console.error(err);
       });
   }, []);
+
+  const handleDeleteFilm = async maPhim => {
+    try {
+      await listMovieServices.deleteMovie(maPhim);
+      setArrMovie(prevArrMovie => prevArrMovie.filter(movie => movie.maPhim !== maPhim));
+      alert('Xóa phim thành công!');
+    } catch (error) {
+      console.error('Error deleting film:', error);
+      alert('Xóa phim không thành công!');
+    }
+  };
 
   return (
     <div className="list_movie bg-black">
@@ -99,6 +111,7 @@ const ListMovie = () => {
             </>
           )}
         </div>
+        {/* <TableFilms arrFilms={arrMovie} onDeleteFilm={handleDeleteFilm} /> Pass props to TableFilms */}
         <div className="list-movie-coming-soon justify-center">
           <div className="list-movie-coming-media">
             <img src={movie1} alt="Kung Fu Panda 4" />
@@ -141,9 +154,9 @@ const ListMovie = () => {
             <div className="list-movie-coming-media">
               <img src={movie4} alt="Civil War" />
               <div className="list-movie-coming-content">
-                <h2 className="list-movie-coming-heading list-movie-coming-heading-mobile">
+                <h className="list-movie-coming-heading list-movie-coming-heading-mobile">
                   Civil War
-                </h2>
+                </h>
                 <h3 className="list-movie-coming-time list-movie-coming-time-mobile">
                   2hr 10m
                 </h3>

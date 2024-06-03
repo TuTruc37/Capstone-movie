@@ -2,7 +2,7 @@ import { Table } from 'antd';
 import React, { useContext } from 'react';
 import { AlertContext } from '../../App';
 
-const TableAdmin = ({ arrFilms }) => {
+const TableAdmin = ({ arrFilms, onDeleteFilm }) => {
   const { handleAlert } = useContext(AlertContext);
 
   const columns = [
@@ -15,7 +15,7 @@ const TableAdmin = ({ arrFilms }) => {
       title: 'Hình ảnh',
       dataIndex: 'hinhAnh',
       render: hinhAnh => (
-        <img src={hinhAnh} alt="Hình ảnh" className='w-[900px]' />
+        <img src={hinhAnh} alt="Hình ảnh" className="w-[900px]" />
       ),
     },
     {
@@ -35,7 +35,10 @@ const TableAdmin = ({ arrFilms }) => {
           <button className="py-2 px-4 rounded text-white bg-yellow-300 mr-3">
             <i className="fa-solid fa-pen"></i>
           </button>
-          <button className="py-2 px-4 rounded text-white bg-red-500 mr-3">
+          <button
+            className="py-2 px-4 rounded text-white bg-red-500 mr-3"
+            onClick={() => onDeleteFilm(record.maPhim)}
+          >
             <i className="fa-solid fa-trash"></i>
           </button>
         </div>
