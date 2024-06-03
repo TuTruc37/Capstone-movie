@@ -9,7 +9,7 @@ import { path } from '../../../common/path';
 import { handleSetValueLocalStore } from '../../../utils/utils';
 import { useDispatch } from 'react-redux';
 import { handleGetValue } from '../../../redux/slice/userSlice';
-import styles from '../FormRegister/formRegister.module.css';
+import styles from '../FormRegister/formRegister.module.scss';
 const FormLogin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -64,6 +64,7 @@ const FormLogin = () => {
           touched={touched.taiKhoan}
           placeholder="Vui lòng nhập tài khoản"
           value={values.taiKhoan}
+          labelColor="text-white"
         />
         <InputCustom
           label="Mật khẩu"
@@ -75,6 +76,7 @@ const FormLogin = () => {
           placeholder="Vui lòng nhập mật khẩu"
           value={values.matKhau}
           type="password"
+          labelColor="text-white"
         />
         <div>
           <button
