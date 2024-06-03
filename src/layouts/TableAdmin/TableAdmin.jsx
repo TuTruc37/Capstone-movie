@@ -19,7 +19,7 @@ const TableAdmin = ({ arrFilms, handleGetAllUser }) => {
       title: 'Hình ảnh',
       dataIndex: 'hinhAnh',
       render: hinhAnh => (
-        <img src={hinhAnh} alt="Hình ảnh" className='w-[900px]' />
+        <img src={hinhAnh} alt="Hình ảnh" className="w-[100px]" />
       ),
     },
     {
@@ -35,10 +35,25 @@ const TableAdmin = ({ arrFilms, handleGetAllUser }) => {
       title: 'Chức năng',
       render: (text, record) => (
         <div className="flex">
-          <button className="py-2 px-4 rounded text-white bg-yellow-300 mr-3">
-            <i className="fa-solid fa-pen"></i>
-          </button>
-          <button className="py-2 px-4 rounded text-white bg-red-500 mr-3">
+          <Link to={path.admin.editFilms(record.maPhim)}>
+            <button className="py-2 px-4 rounded text-white bg-yellow-300 mr-3">
+              <i className="fa-solid fa-pen"></i>
+            </button>
+          </Link>
+          <button
+            onClick={() => {
+              quanLyPhimServ
+                .XoaPhim(record.maPhim)
+                .then(res => {
+                  handleGetAllUser();
+                  handleAlert('success', 'Đã xoá thành công');
+                })
+                .catch(err => {
+                  handleAlert('error', err.response.data.content);
+                });
+            }}
+            className="py-2 px-4 rounded text-white bg-red-500 mr-3"
+          >
             <i className="fa-solid fa-trash"></i>
           </button>
         </div>
