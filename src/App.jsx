@@ -11,7 +11,7 @@ function App() {
   const handleAlert = (type, content) => {
     messageApi.open({
       type,
-      content,
+      content
     });
   };
   return (
