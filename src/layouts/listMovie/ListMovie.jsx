@@ -7,7 +7,6 @@ import movie1 from './../../assets/imgs/listMovie-1.png';
 import movie2 from './../../assets/imgs/listMovie-2.png';
 import movie3 from './../../assets/imgs/listMovie-3.png';
 import movie4 from './../../assets/imgs/listMovie-4.png';
-import TableFilms from './../TableAdmin/TableAdmin';  // Import TableFilms instead of TableAdmin
 
 const ListMovie = () => {
   const [arrMovie, setArrMovie] = useState([]);
@@ -23,17 +22,6 @@ const ListMovie = () => {
       });
   }, []);
 
-  const handleDeleteFilm = async maPhim => {
-    try {
-      await listMovieServices.deleteMovie(maPhim);
-      setArrMovie(prevArrMovie => prevArrMovie.filter(movie => movie.maPhim !== maPhim));
-      alert('Xóa phim thành công!');
-    } catch (error) {
-      console.error('Error deleting film:', error);
-      alert('Xóa phim không thành công!');
-    }
-  };
-
   return (
     <div className="list_movie bg-black">
       <div className="container">
@@ -41,10 +29,10 @@ const ListMovie = () => {
           Movie Trending___
         </h2>
         <div className="list_movie_inner p-2 gap-5">
-          {arrMovie.slice(0, 12).map((item, index) => (
+          {arrMovie.slice(0, 10).map((item, index) => (
             <div key={index} className="list_movies">
               <img
-                className="h-96 w-full object-cover"
+                className="h-[400px] w-full object-cover"
                 src={item.hinhAnh}
                 alt={item.tenPhim}
               />
@@ -72,12 +60,14 @@ const ListMovie = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="list_movie_inner p-2 gap-5">
           <h2 className="text_heading col-span-6 p-0 font-semibold text-lg text-white">
             Coming soon___
           </h2>
-          {arrMovie.length > 12 && (
+          {arrMovie.length > 11 && (
             <>
-              {arrMovie.slice(12).map((item, index) => (
+              {arrMovie.slice(5).map((item, index) => (
                 <div key={index + 12} className="list_movies">
                   <img
                     className="h-96 w-full object-cover"
@@ -111,7 +101,7 @@ const ListMovie = () => {
             </>
           )}
         </div>
-        {/* <TableFilms arrFilms={arrMovie} onDeleteFilm={handleDeleteFilm} /> Pass props to TableFilms */}
+
         <div className="list-movie-coming-soon justify-center">
           <div className="list-movie-coming-media">
             <img src={movie1} alt="Kung Fu Panda 4" />

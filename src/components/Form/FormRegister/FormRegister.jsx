@@ -46,6 +46,12 @@ const FormRegister = () => {
         }
       },
       validationSchema: Yup.object({
+        hoTen: Yup.string()
+          .required('Vui lòng không bỏ trống')
+          .matches(
+            /^[a-zA-Z\s'\-ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠạẢảẤấẦầẨẩẪẫẬậẮắẰằẲẳẴẵẶặẸẹẺẻẼẽẾếỀềỂểỄễỆệỈỉỊịỌọỎỏỐốỒồỔổỖỗỘộỚớỜờỞởỠỡỢợỤụỦủỨứỪừỬửỮữỰựỲỳỴỵỶỷỸỹ]+$/g,
+            'Vui lòng nhập họ tên là chữ'
+          ),
         taiKhoan: Yup.string()
           .required('Vui lòng không bỏ trống')
           .min(5, 'Vui lòng nhập tối thiêu 5 ký tự'),
@@ -78,6 +84,17 @@ const FormRegister = () => {
         <h1 className="md:text-2xl font-bold leading-tight mt-12">
           Tạo tài khoản riêng của bạn
         </h1>
+        <InputCustom
+          label="Họ Tên"
+          name="hoTen"
+          handleChange={handleChange}
+          handleBlur={handleBlur}
+          placeholder="Vui lòng nhập họ và tên"
+          error={errors.hoTen}
+          touched={touched.hoTen}
+          value={values.hoTen}
+          labelColor="text-white"
+        />
         <InputCustom
           label="Tài khoản"
           name="taiKhoan"

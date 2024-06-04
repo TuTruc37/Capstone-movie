@@ -1,29 +1,27 @@
 @import './../../abstracts/breakpoint';
+
 .clip_text {
   display: -webkit-box;
   -webkit-line-clamp: var(--line-clamp, 2);
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .list_movie {
   &_inner {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
     justify-content: center;
-    @include screen(xxl) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @include screen(xl) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @include screen(lg) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @include screen(md) {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    grid-template-columns: repeat(5,1fr);
     @include screen(sm) {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: 1fr !important; // 1 cột cho màn hình nhỏ
+    }
+
+    @include screen(md) {
+      grid-template-columns: repeat(3, 1fr); // 3 cột cho màn hình trung bình
+    }
+
+    @include screen(lg) {
+      grid-template-columns: repeat(3, 1fr); // 3 cột cho màn hình lớn
     }
   }
 }
@@ -32,10 +30,12 @@
   position: relative;
   overflow: hidden;
   background-color: #000;
+
   &:hover .list_movies_icon {
     display: block;
     cursor: pointer;
   }
+
   &:hover {
     &::before {
       content: '';
@@ -45,12 +45,14 @@
       background-color: rgba(255, 255, 255, 0.2);
     }
   }
+
   &:hover .list_movies_content {
     width: 100%;
     transform: translateY(0);
   }
+
   &_content {
-    background-color: rgba($color: #000000, $alpha: 0.7);
+    background-color: rgba(#000000, 0.7);
     padding: 10px 5px;
     position: absolute;
     bottom: 0;
@@ -58,6 +60,7 @@
     transform: translateY(120px);
     transition: all 0.3s;
   }
+
   &_icon {
     color: black;
     border: 3px solid white;
@@ -71,32 +74,34 @@
     display: none;
   }
 }
+
 .text_heading {
   @include screen(sm) {
-    // display: none;
     grid-column: span 3 / span 3 !important;
   }
 }
+
 .list-movie-coming-soon {
   display: flex;
   gap: 20px;
 }
+
 .list-movie-coming {
   &-media {
     position: relative;
-    @include screen(sm) {
-    }
   }
+
   &-content {
     position: absolute;
     bottom: 0;
     left: 0;
     color: #fff;
     padding: 20px;
-
   }
+
   &-heading {
     font-weight: 600;
+
     &-mobile {
       @include screen(sm) {
         display: -webkit-box;
@@ -110,6 +115,7 @@
       }
     }
   }
+
   &-text {
     max-width: 100%;
     @include screen(sm) {
@@ -120,8 +126,10 @@
       font-size: 12px;
     }
   }
+
   &-time {
     font-weight: 500;
+
     &-mobile {
       @include screen(sm) {
         font-size: 10px;

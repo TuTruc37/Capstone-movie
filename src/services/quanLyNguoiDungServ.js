@@ -27,7 +27,11 @@ export const quanLyNguoiDungServ = {
 
   CapNhatThongTinNguoiDung: user => {
     console.log(user);
-    return http.push('/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung', user);
+    return http.post('/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung', user);
+  },
+  CapNhatThongTinNguoiDung2: user => {
+    console.log(user);
+    return http.put('/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung', user);
   },
   thongTinTaiKhoan: taiKhoan => {
     return http.post(`/QuanLyNguoiDung/ThongTinTaiKhoan`, taiKhoan);

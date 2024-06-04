@@ -6,26 +6,27 @@ const SelectCustom = ({
   handleChange,
   value,
   options,
-  labelColor,
+  labelColor = 'text-black',
+  error,
+  touched,
 }) => {
   return (
-    <div className="form-group">
-      <label className={` block mb-2 font-medium ${labelColor} text-lg `}>
-        {label}
-      </label>
+    <div className="flex flex-col">
+      <label className={`mb-2 ${labelColor}`}>{label}</label>
       <select
-        className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 `}
         name={name}
-        value={value}
         onChange={handleChange}
+        value={value}
+        className="border border-gray-300 rounded p-2"
       >
-        {/* Render các tùy chọn từ danh sách options */}
+        <option value="" label="Chọn loại người dùng" />
         {options.map(option => (
-          <option key={option.maLoaiNguoiDung} value={option.maLoaiNguoiDung}>
-            {option.tenLoai}
+          <option key={option.value} value={option.value}>
+            {option.label}
           </option>
         ))}
       </select>
+      {error && touched && <div className="text-red-500">{error}</div>}
     </div>
   );
 };

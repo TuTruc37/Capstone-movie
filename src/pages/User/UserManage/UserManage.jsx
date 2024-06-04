@@ -4,6 +4,8 @@ import { quanLyNguoiDungServ } from '../../../services/quanLyNguoiDungServ';
 import { AlertContext } from '../../../App';
 import { Link } from 'react-router-dom';
 import { path } from '../../../common/path';
+import './userManager.scss';
+import { document } from 'postcss';
 const EditableCell = ({ editing, dataIndex, children }) => {
   return (
     <td>
@@ -92,9 +94,11 @@ const UserManage = () => {
         // console.log(record);
         return (
           <>
-            <button className="py-2 px-4 rounded text-white bg-yellow-600 mr-3">
-              Sửa
-            </button>
+            <Link to={path.admin.quanLyNguoiDung}>
+              <button className="py-2 px-4 rounded text-white bg-yellow-600 mr-3">
+                Sửa
+              </button>
+            </Link>
             <button
               onClick={() => {
                 quanLyNguoiDungServ
@@ -109,7 +113,7 @@ const UserManage = () => {
                     handleAlert('error', err.response.data.content);
                   });
               }}
-              className="py-2 px-4 rounded text-white bg-red-600"
+              className="py-2 btn-deleteUser px-4 rounded text-white bg-red-600"
             >
               Xoá
             </button>
@@ -134,12 +138,12 @@ const UserManage = () => {
     };
   });
   return (
-    <div className="py-16">
+    <div className="py-16 userManager">
       <div>
         {/* Không chuyển link được bị đứng luôn */}
         <Link to={path.admin.quanLyNguoiDung}>
           <button
-            className="py-2 px-5 bg-blue-500 hover:bg-blue-700 text-white rounded mb-5"
+            className="py-2 btn-addUser px-5 bg-blue-500 hover:bg-blue-700 text-white rounded mb-5"
             type="submit"
           >
             <i className="fas fa-plus-circle"></i> Thêm người dùng
