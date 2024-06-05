@@ -1,10 +1,20 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import useRouteCustom from './routes/UseRouteCustom';
+import Header from './layout/Header/Header';
+
+import Fooder from './layout/Fooder/Fooder';
+import Detail from './component/page/DetailPage/Detail';
 
 function App() {
-  const myRoutes = useRouteCustom();
-  return myRoutes;
+  return (
+    <div className="bg-black">
+      <Header />
+      {/* <Routes>
+        <Route path='/chitiet/1322' element={<Detail />} />
+      </Routes> */}
+      <Detail />
+      <Fooder />
+    </div>
+  );
 }
-
 export default App;
